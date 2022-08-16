@@ -2,12 +2,6 @@ local fn = vim.fn
 
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
--- returns the require for use in `config` parameter of packer's use
--- expects the name of the config file
-local function get_config(name)
-  return string.format('require("config/%s")', name)
-end
-
 -- bootstrap packer if not installed
 if fn.empty(fn.glob(install_path)) > 0 then
   fn.system({
@@ -46,48 +40,54 @@ packer.startup(function(use)
   use({
     "nvim-telescope/telescope.nvim",
     requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
-    config = get_config("telescope"),
   })
-
-  use({ "nvim-telescope/telescope-packer.nvim" })
 
   -- TreeSitter
   use({
     "nvim-treesitter/nvim-treesitter",
-    config = get_config("treesitter"),
-    run = ":TSUpdate",
   })
 
-  -- Lua Line
+  -- Galaxy Line
   use({
-    "nvim-lualine/lualine.nvim",
-    config = get_config("lualine"),
-    event = "VimEnter",
-    requires = { "kyazdani42/nvim-web-devicons", opt = true },
+    "NTBBloodbath/galaxyline.nvim",
+    -- your statusline
+    config = function()
+      require("galaxyline.themes.eviline")
+    end,
+    -- some optional icons
+    requires = { "kyazdani42/nvim-web-devicons", opt = true }
   })
 
   -- Autopairs
-  use({ "windwp/nvim-autopairs", config = get_config("nvim-autopairs") })
+  use("windwp/nvim-autopairs")
 
   -- Nvim Tree
-  use({ "kyazdani42/nvim-tree.lua", config = get_config("nvim-tree") })
+  use("kyazdani42/nvim-tree.lua")
 
   -- BufDelete ( close buffer leave the window )
   use("famiu/bufdelete.nvim")
 
   -- Lightspeed motion plugin
-  use({ "ggandor/lightspeed.nvim" })
+  use("ggandor/lightspeed.nvim")
 
   -- Which Key
-  use ({
-    "folke/which-key.nvim",
-    config = get_config("which-key"),
-  })
+  use ("folke/which-key.nvim")
 
   -- Comments
-  use ({
-    "terrortylor/nvim-comment",
-    config = get_config("nvim-comment")
+  use ("terrortylor/nvim-comment")
+
+  -- Bufferline
+  use({
+    "akinsho/bufferline.nvim",
+    tag = "v2.*",
+    requires = "kyazdani42/nvim-web-devicons",
   })
 
 end)
+
+require("config/treesitter")
+require("config/nvim-tree")
+require("config/bufferline")
+require("config/nvim-comment")
+require("config/nvim-autopairs")
+require("config/which-key")
