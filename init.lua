@@ -42,6 +42,12 @@ packer.startup(function(use)
 
   -- OneDark Theme
   use("navarasu/onedark.nvim")
+
+  -- Telescope
+  use({
+    "nvim-telescope/telescope.nvim",
+    requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
+  })
 end)
 
 -- Color Setup
