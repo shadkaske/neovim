@@ -15,3 +15,6 @@ map("v", "p", '"_dP', default_options)
 
 -- Y to yank to end of line
 map("n", "Y", "y$", default_options)
+
+-- Close Window with C-q
+map("n", "<C-q>", "<C-w>q", default_options)
