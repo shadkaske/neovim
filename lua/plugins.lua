@@ -57,6 +57,7 @@ packer.startup(function(use)
   -- Lua Line
   use({
     "nvim-lualine/lualine.nvim",
+    config = get_config("lualine"),
     event = "VimEnter",
     requires = { "kyazdani42/nvim-web-devicons", opt = true },
   })
