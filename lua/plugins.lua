@@ -62,4 +62,7 @@ packer.startup(function(use)
     requires = { "kyazdani42/nvim-web-devicons", opt = true },
   })
 
+  -- Autopairs
+  use({ "windwp/nvim-autopairs", config = get_config("nvim-autopairs") })
+
 end)
