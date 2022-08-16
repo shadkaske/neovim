@@ -65,4 +65,7 @@ packer.startup(function(use)
   -- Autopairs
   use({ "windwp/nvim-autopairs", config = get_config("nvim-autopairs") })
 
+  -- Nvim Tree
+  use({ "kyazdani42/nvim-tree.lua", config = get_config("nvim-tree") })
+
 end)
