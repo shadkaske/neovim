@@ -47,9 +47,6 @@ telescope.setup({
         ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
         ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
         ["<cr>"] = actions.select_default,
-        ["<c-v>"] = actions.select_vertical,
-        ["<c-s>"] = actions.select_horizontal,
-        ["<c-t>"] = actions.select_tab,
         ["<c-p>"] = action_layout.toggle_preview,
         ["<c-o>"] = action_layout.toggle_mirror,
         ["<c-h>"] = actions.which_key,
@@ -65,7 +62,7 @@ telescope.setup({
     sorting_strategy = "descending",
     layout_strategy = "horizontal",
     layout_config = {
-      width = 0.95,
+      width = 0.60,
       height = 0.85,
       -- preview_cutoff = 120,
       prompt_position = "top",

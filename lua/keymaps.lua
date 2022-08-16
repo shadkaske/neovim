@@ -2,7 +2,7 @@ local map = vim.keymap.set
 local default_options = { silent = true }
 local expr_options = { expr = true, silent = true }
 
-map({ "n", "v" }, "<Space>", "<Nop", default_options )
+map({ "n", "v" }, "<Space>", "<Nop>", default_options )
 vim.g.mapleader = " "
 
 map("n", "<C-p>", "<cmd>Telescope find_files<cr>", default_options)
