@@ -53,7 +53,6 @@ telescope.setup({
         ["<c-p>"] = action_layout.toggle_preview,
         ["<c-o>"] = action_layout.toggle_mirror,
         ["<c-h>"] = actions.which_key,
-        ["<c-x>"] = actions.delete_buffer,
       },
     },
     prompt_prefix = "> ",
