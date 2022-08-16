@@ -52,7 +52,11 @@ packer.startup(function(use)
   use({ "nvim-telescope/telescope-packer.nvim" })
 
   -- TreeSitter
-  use("nvim-treesitter/nvim-treesitter")
+  use({
+    "nvim-treesitter/nvim-treesitter",
+    config = get_config("treesitter"),
+    run = ":TSUpdate",
+  })
 
   -- Lua Line
   use({
@@ -67,5 +71,11 @@ packer.startup(function(use)
 
   -- Nvim Tree
   use({ "kyazdani42/nvim-tree.lua", config = get_config("nvim-tree") })
+
+  -- BufDelete ( close buffer leave the window )
+  use("famiu/bufdelete.nvim")
+
+  -- Lightspeed motion plugin
+  use({ "ggandor/lightspeed.nvim" })
 
 end)
