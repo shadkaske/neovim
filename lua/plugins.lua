@@ -53,4 +53,12 @@ packer.startup(function(use)
 
   -- TreeSitter
   use("nvim-treesitter/nvim-treesitter")
+
+  -- Lua Line
+  use({
+    "nvim-lualine/lualine.nvim",
+    event = "VimEnter",
+    requires = { "kyazdani42/nvim-web-devicons", opt = true },
+  })
+
 end)
