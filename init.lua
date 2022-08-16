@@ -39,3 +39,5 @@ vim.opt.lazyredraw = true
 
 vim.opt.errorbells = false
 vim.opt.visualbell = true
+
+vim.opt.termguicolors = true
