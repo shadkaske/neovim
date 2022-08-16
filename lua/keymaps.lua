@@ -13,3 +13,6 @@ map("n", "<S-TAB>", ":bprev<CR>", default_options)
 
 -- paste over currently selected text without yanking it
 map("v", "p", '"_dP', default_options)
+
+-- Y to yank to end of line
+map("n", "Y", "y$", default_options)
