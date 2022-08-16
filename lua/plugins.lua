@@ -78,4 +78,16 @@ packer.startup(function(use)
   -- Lightspeed motion plugin
   use({ "ggandor/lightspeed.nvim" })
 
+  -- Which Key
+  use ({
+    "folke/which-key.nvim",
+    config = get_config("which-key"),
+  })
+
+  -- Comments
+  use ({
+    "terrortylor/nvim-comment",
+    config = get_config("nvim-comment")
+  })
+
 end)
