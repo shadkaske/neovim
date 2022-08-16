@@ -1,6 +1,9 @@
 -- Plugins
 require("plugins")
 
+-- Keybinds
+require("keymaps")
+
 -- Color Setup
 require("onedark").setup {
   style = 'dark'
