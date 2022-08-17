@@ -38,5 +38,9 @@ wk.register({
       r = { "<cmd>luafile %<cr>", "Reload Current File" },
       R = { "<cmd>luafile ~/.config/nvim/init.lua<cr>", "Reload Config" },
     },
+    t = {
+      name = "+Terminal",
+      t = { "<cmd>ToggleTerm<cr>", "ToggleTerm" },
+    },
   }
 })

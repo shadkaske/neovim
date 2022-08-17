@@ -137,6 +137,12 @@ packer.startup(function(use)
 
   use("SmiteshP/nvim-navic")
 
+  -- ToggleTerm
+  use({
+    "akinsho/toggleterm.nvim",
+    tag = 'v2.*'
+  })
+
 end)
 
 require("config.treesitter")
@@ -156,3 +162,4 @@ require("config.null-ls")
 require("config.gitsigns")
 require("config.diffview")
 require("config.neogit")
+require("config.toggleterm")
