@@ -22,5 +22,19 @@ wk.register({
       name = "+Git",
       s = { "<cmd>Neogit<cr>", "Neogit Status" },
     },
+    b = {
+      name = "+Buffers",
+      d = { "<cmd>Bdelete<cr>", "Close" },
+      c = { "<cmd>BufferLinePick<cr>", "Change Buffer"},
+      n = { "<cmd>BufferLineCycleNext<cr>", "Next Buffer"},
+      p = { "<cmd>BufferLineCyclePrev<cr>", "Previous Buffer"},
+      N = { "<cmd>BufferLineMoveNext<cr>", "Move Buffer Next"},
+      P = { "<cmd>BufferLineMovePrev<cr>", "Move Buffer Previous"},
+    },
+    c = {
+      name = "+Nvim Config",
+      r = { "<cmd>luafile %<cr>", "Reload Current File" },
+      R = { "<cmd>luafile ~/.config/nvim/init.lua<cr>", "Reload Config" },
+    },
   }
 })

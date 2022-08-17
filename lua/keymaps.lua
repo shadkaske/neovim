@@ -22,3 +22,9 @@ map("n", "<C-q>", "<C-w>q", default_options)
 -- Add line above or below without insert mode
 map("n", "[o", "o<esc>", default_options)
 map("n", "]o", "O<esc>", default_options)
+
+-- Pane navigation
+map("n", "<C-j>", "<C-w>j", default_options)
+map("n", "<C-k>", "<C-w>k", default_options)
+map("n", "<C-l>", "<C-w>l", default_options)
+map("n", "<C-h>", "<C-w>h", default_options)
