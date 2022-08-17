@@ -128,6 +128,10 @@ packer.startup(function(use)
     requires = { "nvim-lua/plenary.nvim" },
   })
 
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+
+  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+
   -- Utility plugins
   use("RRethy/vim-illuminate")
 
@@ -150,3 +154,5 @@ require("config.mason")
 require("config.illuminate")
 require("config.null-ls")
 require("config.gitsigns")
+require("config.diffview")
+require("config.neogit")
