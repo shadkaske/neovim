@@ -4,8 +4,10 @@ local wk = require("which-key")
 
 wk.register({
   ["<leader>"] = {
+    w = { "<cmd>w!<CR>", "Save" },
     e = { "<cmd>NvimTreeToggle<cr>", "Explorer", },
     h = { "<cmd>nohlsearch<cr>", "Turn off Highlight" },
+    n = { "<cmd>ene!<cr>", "New File" },
     f = {
       name = "+File",
       f = { "<cmd>Telescope find_files<cr>", "Find File" },
