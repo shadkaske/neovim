@@ -47,16 +47,21 @@ packer.startup(function(use)
     "nvim-treesitter/nvim-treesitter",
   })
 
-  -- Galaxy Line
-  use({
-    "NTBBloodbath/galaxyline.nvim",
-    -- your statusline
-    config = function()
-      require("galaxyline.themes.eviline")
-    end,
-    -- some optional icons
-    requires = { "kyazdani42/nvim-web-devicons", opt = true }
+  -- lualine
+  use ({
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   })
+  -- Galaxy Line
+  -- use({
+  --   "NTBBloodbath/galaxyline.nvim",
+  --   -- your statusline
+  --   config = function()
+  --     require("galaxyline.themes.eviline")
+  --   end,
+  --   -- some optional icons
+  --   requires = { "kyazdani42/nvim-web-devicons", opt = true }
+  -- })
 
   -- Autopairs
   use("windwp/nvim-autopairs")
@@ -83,11 +88,52 @@ packer.startup(function(use)
     requires = "kyazdani42/nvim-web-devicons",
   })
 
+  -- Completion
+  use({ "onsails/lspkind-nvim", requires = { "famiu/bufdelete.nvim" } })
+  use({
+    "hrsh7th/nvim-cmp",
+    requires = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-cmdline",
+      "f3fora/cmp-spell",
+      "hrsh7th/cmp-calc",
+      "lukas-reineke/cmp-rg",
+      "hrsh7th/cmp-nvim-lsp-signature-help",
+    },
+  })
+
+  -- Snippets
+  use({ "rafamadriz/friendly-snippets" })
+
+  use({
+    "L3MON4D3/LuaSnip",
+    requires = "saadparwaiz1/cmp_luasnip",
+  })
+
+  -- LSP
+  use("neovim/nvim-lspconfig")
+
+  use("williamboman/mason.nvim")
+
+  -- Utility plugins
+  use("RRethy/vim-illuminate")
+
+  use("SmiteshP/nvim-navic")
+
 end)
 
-require("config/treesitter")
-require("config/nvim-tree")
-require("config/bufferline")
-require("config/nvim-comment")
-require("config/nvim-autopairs")
-require("config/which-key")
+require("config.treesitter")
+require("config.nvim-tree")
+require("config.bufferline")
+require("config.nvim-comment")
+require("config.nvim-autopairs")
+require("config.which-key")
+require("config.telescope")
+require("config.lualine")
+require("config.luasnip")
+require("config.cmp")
+require("config.lsp")
+require("config.mason")
+require("config.illuminate")
