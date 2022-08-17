@@ -12,6 +12,7 @@ wk.register({
       name = "+File",
       f = { "<cmd>Telescope find_files<cr>", "Find File" },
       r = { "<cmd>Telescope oldfiles<cr>", "Open Recent Files"},
+      g = { "<cmd>Telescope live_grep<cr>", "Live Grep Files"},
     },
     P = {
       name = "+Packer",

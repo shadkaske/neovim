@@ -143,6 +143,12 @@ packer.startup(function(use)
     tag = 'v2.*'
   })
 
+  -- Alpha Dashboard
+  use {
+      'goolord/alpha-nvim',
+      requires = { 'kyazdani42/nvim-web-devicons' },
+  }
+
 end)
 
 require("config.treesitter")
@@ -163,3 +169,4 @@ require("config.gitsigns")
 require("config.diffview")
 require("config.neogit")
 require("config.toggleterm")
+require("config.alpha")
