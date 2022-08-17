@@ -117,6 +117,17 @@ packer.startup(function(use)
 
   use("williamboman/mason.nvim")
 
+  use({
+    "jose-elias-alvarez/null-ls.nvim",
+    requires = { { "nvim-lua/plenary.nvim" } },
+  })
+
+  -- Git Things
+  use({
+    "lewis6991/gitsigns.nvim",
+    requires = { "nvim-lua/plenary.nvim" },
+  })
+
   -- Utility plugins
   use("RRethy/vim-illuminate")
 
@@ -137,3 +148,5 @@ require("config.cmp")
 require("config.lsp")
 require("config.mason")
 require("config.illuminate")
+require("config.null-ls")
+require("config.gitsigns")
