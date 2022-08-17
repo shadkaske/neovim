@@ -40,3 +40,5 @@ o.backup = false
 
 o.clipboard = "unnamedplus"
 
+o.showmode = false
+
