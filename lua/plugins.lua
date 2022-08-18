@@ -2,6 +2,10 @@ local fn = vim.fn
 
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
+local function get_setup(name)
+  return string.format('require("setup.%s")', name)
+end
+
 -- bootstrap packer if not installed
 if fn.empty(fn.glob(install_path)) > 0 then
   fn.system({
@@ -151,22 +155,22 @@ packer.startup(function(use)
 
 end)
 
-require("config.treesitter")
-require("config.nvim-tree")
-require("config.bufferline")
-require("config.nvim-comment")
-require("config.nvim-autopairs")
-require("config.which-key")
-require("config.telescope")
-require("config.lualine")
-require("config.luasnip")
-require("config.cmp")
-require("config.lsp")
-require("config.mason")
-require("config.illuminate")
-require("config.null-ls")
-require("config.gitsigns")
-require("config.diffview")
-require("config.neogit")
-require("config.toggleterm")
-require("config.alpha")
+require("setup.treesitter")
+require("setup.nvim-tree")
+require("setup.bufferline")
+require("setup.nvim-comment")
+require("setup.nvim-autopairs")
+require("setup.which-key")
+require("setup.telescope")
+require("setup.lualine")
+require("setup.luasnip")
+require("setup.cmp")
+require("setup.lsp")
+require("setup.mason")
+require("setup.illuminate")
+require("setup.null-ls")
+require("setup.gitsigns")
+require("setup.diffview")
+require("setup.neogit")
+require("setup.toggleterm")
+require("setup.alpha")
