@@ -6,7 +6,7 @@ wk.register({
   ["<leader>"] = {
     w = { "<cmd>w!<CR>", "Save" },
     e = { "<cmd>NvimTreeToggle<cr>", "Explorer", },
-    h = { "<cmd>nohlsearch<cr>", "Turn off Highlight" },
+    h = { "<cmd>nohlsearch<cr>", "Highlight" },
     n = { "<cmd>ene!<cr>", "New File" },
     f = {
       name = "+File",
