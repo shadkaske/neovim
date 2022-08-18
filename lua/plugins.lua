@@ -2,10 +2,6 @@ local fn = vim.fn
 
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
-local function get_setup(name)
-  return string.format('require("setup.%s")', name)
-end
-
 -- bootstrap packer if not installed
 if fn.empty(fn.glob(install_path)) > 0 then
   fn.system({
@@ -44,34 +40,43 @@ packer.startup(function(use)
   use({
     "nvim-telescope/telescope.nvim",
     requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
+    config = function ()
+      require("setup.telescope")
+    end
   })
 
   -- TreeSitter
   use({
     "nvim-treesitter/nvim-treesitter",
+    config = function()
+      require("setup.treesitter")
+    end,
   })
 
   -- lualine
   use ({
     'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+    config = function ()
+      require("setup.lualine")
+    end,
   })
-  -- Galaxy Line
-  -- use({
-  --   "NTBBloodbath/galaxyline.nvim",
-  --   -- your statusline
-  --   config = function()
-  --     require("galaxyline.themes.eviline")
-  --   end,
-  --   -- some optional icons
-  --   requires = { "kyazdani42/nvim-web-devicons", opt = true }
-  -- })
 
   -- Autopairs
-  use("windwp/nvim-autopairs")
+  use({
+    "windwp/nvim-autopairs",
+    config = function ()
+      require("setup.nvim-autopairs")
+    end,
+  })
 
   -- Nvim Tree
-  use("kyazdani42/nvim-tree.lua")
+  use({
+    "kyazdani42/nvim-tree.lua",
+    config = function ()
+      require("setup.nvim-tree")
+    end,
+  })
 
   -- BufDelete ( close buffer leave the window )
   use("famiu/bufdelete.nvim")
@@ -80,20 +85,37 @@ packer.startup(function(use)
   use("ggandor/lightspeed.nvim")
 
   -- Which Key
-  use ("folke/which-key.nvim")
+  use ({
+    "folke/which-key.nvim",
+    config = function ()
+      require("setup.which-key")
+    end,
+  })
 
   -- Comments
-  use ("terrortylor/nvim-comment")
+  use ({
+    "terrortylor/nvim-comment",
+    config = function ()
+      require("setup.nvim-comment")
+    end,
+  })
 
   -- Bufferline
   use({
     "akinsho/bufferline.nvim",
     tag = "v2.*",
     requires = "kyazdani42/nvim-web-devicons",
+    config = function ()
+      require("setup.bufferline")
+    end,
   })
 
   -- Completion
-  use({ "onsails/lspkind-nvim", requires = { "famiu/bufdelete.nvim" } })
+  use({
+    "onsails/lspkind-nvim",
+    requires = { "famiu/bufdelete.nvim" },
+  })
+
   use({
     "hrsh7th/nvim-cmp",
     requires = {
@@ -106,6 +128,9 @@ packer.startup(function(use)
       "lukas-reineke/cmp-rg",
       "hrsh7th/cmp-nvim-lsp-signature-help",
     },
+    config = function ()
+      require("setup.cmp")
+    end,
   })
 
   -- Snippets
@@ -114,63 +139,85 @@ packer.startup(function(use)
   use({
     "L3MON4D3/LuaSnip",
     requires = "saadparwaiz1/cmp_luasnip",
+    config = function ()
+      require("setup.luasnip")
+    end,
   })
 
   -- LSP
-  use("neovim/nvim-lspconfig")
+  use({
+    "neovim/nvim-lspconfig",
+    config = function ()
+      require("setup.lsp")
+    end,
+  })
 
-  use("williamboman/mason.nvim")
+  use({
+    "williamboman/mason.nvim",
+    config = function ()
+      require("setup.mason")
+    end,
+  })
 
   use({
     "jose-elias-alvarez/null-ls.nvim",
     requires = { { "nvim-lua/plenary.nvim" } },
+    config = function ()
+      require("setup.null-ls")
+    end,
   })
 
   -- Git Things
   use({
     "lewis6991/gitsigns.nvim",
     requires = { "nvim-lua/plenary.nvim" },
+    config = function ()
+      require("setup.gitsigns")
+    end,
   })
 
-  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+  use ({
+    'sindrets/diffview.nvim',
+    requires = 'nvim-lua/plenary.nvim',
+    config = function ()
+      require("setup.diffview")
+    end,
+  })
 
-  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+  use ({
+    'TimUntersberger/neogit',
+    requires = 'nvim-lua/plenary.nvim',
+    config = function ()
+      require("setup.neogit")
+    end,
+  })
 
   -- Utility plugins
-  use("RRethy/vim-illuminate")
+  use({
+    "RRethy/vim-illuminate",
+    config = function ()
+      require("setup.illuminate")
+    end,
+  })
 
   use("SmiteshP/nvim-navic")
 
   -- ToggleTerm
   use({
     "akinsho/toggleterm.nvim",
-    tag = 'v2.*'
+    tag = 'v2.*',
+    config = function ()
+      require("setup.toggleterm")
+    end,
   })
 
   -- Alpha Dashboard
-  use {
-      'goolord/alpha-nvim',
-      requires = { 'kyazdani42/nvim-web-devicons' },
-  }
+  use ({
+    'goolord/alpha-nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' },
+    config = function ()
+      require("setup.alpha")
+    end,
+  })
 
 end)
-
-require("setup.treesitter")
-require("setup.nvim-tree")
-require("setup.bufferline")
-require("setup.nvim-comment")
-require("setup.nvim-autopairs")
-require("setup.which-key")
-require("setup.telescope")
-require("setup.lualine")
-require("setup.luasnip")
-require("setup.cmp")
-require("setup.lsp")
-require("setup.mason")
-require("setup.illuminate")
-require("setup.null-ls")
-require("setup.gitsigns")
-require("setup.diffview")
-require("setup.neogit")
-require("setup.toggleterm")
-require("setup.alpha")
