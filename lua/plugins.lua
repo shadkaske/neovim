@@ -227,4 +227,9 @@ packer.startup(function(use)
     end,
   })
 
+  -- Debug
+  use({
+    'mfussenegger/nvim-dap',
+  })
+
 end)
