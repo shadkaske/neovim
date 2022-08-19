@@ -30,14 +30,12 @@ capabilities.textDocument.foldingRange = {
 
 local servers = {
   "bashls",
-  "dockerls",
   "jsonls",
   "pyright",
   "sumneko_lua",
-  "terraformls",
-  "texlab",
   "tsserver",
   "yamlls",
+  "intelephense",
 }
 -- Use a loop to conveniently call 'setup' on multiple servers
 for _, lsp in ipairs(servers) do
@@ -115,27 +113,6 @@ for _, lsp in ipairs(servers) do
         telemetry = { enable = false },
       },
       redhat = { telemetry = { enabled = false } },
-      texlab = {
-        auxDirectory = ".",
-        bibtexFormatter = "texlab",
-        build = {
-          args = {
-            "--keep-intermediates",
-            "--keep-logs",
-            "--synctex",
-            "%f",
-          },
-          executable = "tectonic",
-          forwardSearchAfter = false,
-          onSave = false,
-        },
-        chktex = { onEdit = false, onOpenAndSave = false },
-        diagnosticsDelay = 300,
-        formatterLineLength = 80,
-        forwardSearch = { args = {} },
-        latexFormatter = "latexindent",
-        latexindent = { modifyLineBreaks = false },
-      },
       yaml = {
         schemaStore = {
           enable = true,
