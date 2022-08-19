@@ -183,13 +183,13 @@ packer.startup(function(use)
     end,
   })
 
-  use ({
-    'sindrets/diffview.nvim',
-    requires = 'nvim-lua/plenary.nvim',
-    config = function ()
-      require("setup.diffview")
-    end,
-  })
+  -- use ({
+  --   'sindrets/diffview.nvim',
+  --   requires = 'nvim-lua/plenary.nvim',
+  --   config = function ()
+  --     require("setup.diffview")
+  --   end,
+  -- })
 
   use ({
     'TimUntersberger/neogit',
