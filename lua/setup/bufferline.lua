@@ -1,5 +1,6 @@
 require("bufferline").setup({
   options = {
+    close_command = "bdelete! %d",
     show_close_icon = false,
     show_buffer_close_icon = false,
     alway_show_bufferline = false,
