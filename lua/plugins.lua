@@ -151,6 +151,14 @@ packer.startup(function(use)
     end,
   })
 
+  -- Tmux
+  use({
+    "aserowy/tmux.nvim",
+    config = function()
+      require("setup.tmux")
+    end
+  })
+
   -- LSP
   use({
     "neovim/nvim-lspconfig",
